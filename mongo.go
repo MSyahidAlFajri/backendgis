@@ -1,21 +1,21 @@
 package backendgis
 
 import (
-	"os"
-
 	"github.com/aiteung/atdb"
 	"go.mongodb.org/mongo-driver/mongo"
+	"os"
 )
 
-func SetConnection(MONGOCONNSTRINGENV, dbname string) *mongo.Database {
-	var DBmongoinfo = atdb.DBInfo{
-		DBString: os.Getenv(MONGOCONNSTRINGENV),
+func GetConnectionMongo(MongoString, dbname string) *mongo.Database {
+	MongoInfo := atdb.DBInfo{
+		DBString: os.Getenv(MongoString),
 		DBName:   dbname,
 	}
-	return atdb.MongoConnect(DBmongoinfo)
+	conn := atdb.MongoConnect(MongoInfo)
+	return conn
 }
 
-func GetAllBangunanLineString(mongoconn *mongo.Database, collection string) []GeoJson {
-	lokasi := atdb.GetAllDoc[[]GeoJson](mongoconn, collection)
-	return lokasi
+func GetAllGeoData(MongoConnect *mongo.Database, colname string) []GeoJson {
+	data := atdb.GetAllDoc[[]GeoJson](MongoConnect, colname)
+	return data
 }
