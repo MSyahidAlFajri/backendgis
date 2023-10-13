@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestGCHandlerFunc(t *testing.T) {
-	data := GCHandlerFunc("string", "geojson", "bandaaceh")
-
-	fmt.Printf("%+v", data)
+func TestUpdateGetData(t *testing.T) {
+	mconn := SetConnection("MONGOULBI", "petapedia")
+	datalokasi := GetAllBangunanLineString(mconn, "petapedia")
+	fmt.Println(datalokasi)
 }
