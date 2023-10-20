@@ -5,8 +5,13 @@ import (
 	"testing"
 )
 
-func TestUpdateGetData(t *testing.T) {
-	mconn := SetConnection("MONGOULBI", "petapedia")
-	datalokasi := GetAllBangunanLineString(mconn, "petapedia")
-	fmt.Println(datalokasi)
+// func TestUpdateGetData(t *testing.T) {
+// 	mconn := GetConnectionMongo("MONGOSTRING", "geojson")
+// 	data := GetAllGeoData(mconn, "geojson")
+// 	fmt.Println(data)
+// }
+func TestGCHandlerFunc(t *testing.T) {
+	data := GCHandlerFunc("string", "GIS", "geogis")
+
+	fmt.Printf("%+v", data)
 }
