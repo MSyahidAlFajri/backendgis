@@ -11,7 +11,7 @@ import (
 // 	fmt.Println(data)
 // }
 func TestGCHandlerFunc(t *testing.T) {
-	data := GCHandlerFunc("string", "GIS", "geogis")
+	data := GCHandlerFunc("MONGOSTRING", "geojson", "post")
 
 	fmt.Printf("%+v", data)
 }
